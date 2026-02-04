@@ -3,12 +3,13 @@ class Persona:
     Clase que permite crear objetos de tipo Persona
     '''
 
-    def __init__(self, cedula: str, nombre: str, apellido: str, sexo: str, email: str = None):
+    def __init__(self, cedula: str, nombre: str, apellido: str, sexo: str, estado: str, email: str = None):
         self.cedula = cedula
         self.nombre = nombre
         self.apellido = apellido
         self.sexo = sexo
         self.email = email
+        self.estado = estado
 
     # ---------- Cedula ----------
     @property
@@ -54,6 +55,18 @@ class Persona:
             raise ValueError("El sexo debe ser 'masculino' o 'femenino'")
         self._sexo = valor
 
+    # ---------- Estado civil ----------
+    @property
+    def estado(self):
+        return self._estado
+
+    @estado.setter
+    def estado(self, valor):
+        if valor.lower() not in ("casado", "soltero", "divorciado"):
+            raise ValueError("Debe seleccionar estado civil")
+        self._estado = valor
+
+
     # ---------- Email ----------
     @property
     def email(self):
@@ -72,5 +85,5 @@ class Persona:
                 f"Sexo: {self._sexo}, "
                 f"Email: {self._email if self._email else 'No registrado'} ]")
 
-if __name__ == '__main__':
-    p1 = Persona("", "", "", "")
+#if __name__ == '__main__':
+    #p1 = Persona("", "", "", "", "", "")

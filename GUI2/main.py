@@ -6,5 +6,3 @@ app = QApplication()
 vtn_principal = PersonaServicio()
 vtn_principal.show()
 sys.exit(app.exec())
-
-
